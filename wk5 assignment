@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JavaScript Assignment Demo</title>
+  <style>
+    #dynamicText {
+      font-size: 18px;
+      color: black;
+    }
+    .new-box {
+      padding: 10px;
+      margin-top: 10px;
+      background-color: lightblue;
+      border: 1px solid #333;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>JavaScript Assignment Example @ PLP</h2>
+
+  <!-- Dynamic Text Content -->
+  <p id="dynamicText">This is the original text.</p>
+  <button onclick="changeText()">Change Text</button>
+
+  <!-- Modify Styles -->
+  <button onclick="changeStyles()">Change Style</button>
+
+  <!-- Add/Remove Element -->
+  <button onclick="addElement()">Add Element</button>
+  <button onclick="removeElement()">Remove Element</button>
+
+  <div id="elementContainer"></div>
+
+  <script>
+    // 1. Change text content dynamically
+    function changeText() {
+      document.getElementById("dynamicText").textContent = "The text has been changed dynamically!";
+    }
+
+    // 2. Modify CSS styles via JavaScript
+    function changeStyles() {
+      const text = document.getElementById("dynamicText");
+      text.style.color = "blue";
+      text.style.fontWeight = "bold";
+      text.style.fontSize = "24px";
+    }
+
+    // 3. Add or remove an element
+    function addElement() {
+      // Only add if it doesn't exist yet
+      if (!document.getElementById("newBox")) {
+        const newDiv = document.createElement("div");
+        newDiv.id = "newBox";
+        newDiv.className = "new-box";
+        newDiv.textContent = "I was added by JavaScript!";
+        document.getElementById("elementContainer").appendChild(newDiv);
+      }
+    }
+
+    function removeElement() {
+      const existingBox = document.getElementById("newBox");
+      if (existingBox) {
+        existingBox.remove();
+      }
+    }
+  </script>
+
+</body>
+</html>
